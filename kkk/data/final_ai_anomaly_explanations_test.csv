@@ -1,0 +1,285 @@
+order_date,zscore_anomaly,isolation_forest_anomaly,both_models_anomaly,zscore_only,isolation_forest_only,final_anomaly_status,confidence,orders,revenue,gross_sales,discount,product_cost,profit,quantity,average_order_value,profit_margin,repeat_customer_rate,average_rating,negative_sentiment_rate,payment_failure_rate,delivery_delay_rate,orders_zscore,revenue_zscore,gross_sales_zscore,discount_zscore,product_cost_zscore,profit_zscore,quantity_zscore,average_order_value_zscore,profit_margin_zscore,repeat_customer_rate_zscore,average_rating_zscore,negative_sentiment_rate_zscore,payment_failure_rate_zscore,delivery_delay_rate_zscore,main_anomaly_causes,revenue_impact,profit_impact,orders_impact,revenue_impact_percentage,profit_impact_percentage,orders_impact_percentage,business_impact,ai_business_explanation
+2021-01-20,True,False,False,True,False,Possible Anomaly,Medium,47,65653.51,63026.66,5272.32,31697.15,32751.44,267,1396.8831914893617,49.88528412266153,100.0,3.591666666666667,0.0,19.148936170212767,14.893617021276595,-1.5526990107996372,-1.1347848449752138,-0.9925396429735044,-0.7003649234093066,-1.0235714806953709,-1.137591557841689,-0.9495544616905448,0.8144371140873675,0.9753343615825985,0.4311127392714602,-1.2942182992287652,-0.6353605280087982,3.69967058025717,0.6782436146827541,payment_failure_rate (z=3.70),-28784.44622970537,-8529.806223692121,-27.17558628983764,-30.479742869161385,-20.662666474435788,-36.63683382784506,Critical,"## 1. What happened
+
+On **January 20, 2021**, the business processed only **47 orders**. The main unusual signal was a high **payment failure rate of 19.1%**—approximately **9 orders** may have failed payment.
+
+Compared with normal performance:
+
+- **Orders were down 36.6%**
+- **Revenue was down 30.5%**
+- **Profit was down 20.7%**
+- Delivery delays affected **14.9% of orders**
+- The **average order value was strong at $1,396.88**
+- The **profit margin was also healthy at approximately 49.9%**
+
+This suggests the main problem was not order profitability, but the loss of completed orders due to payment issues.
+
+## 2. Possible business reason
+
+The high payment failure rate may have been caused by:
+
+- A temporary payment gateway or bank outage
+- Problems with the checkout or payment integration
+- Increased declines from a particular card issuer or payment method
+- Fraud-prevention rules rejecting too many legitimate customers
+- Expired cards, incorrect billing details, or failed payment retries
+- A change in traffic or customer mix that brought in higher-risk transactions
+
+The payment failure rate has a **z-score of 3.70**, meaning it was significantly higher than usual. However, confidence is only **medium** because the day had a relatively small number of orders.
+
+## 3. Business impact
+
+The payment issue likely prevented customers from completing purchases, resulting in:
+
+- Approximately **17 fewer orders than expected**
+- Around **30.5% less revenue**
+- Around **20.7% less profit**
+
+Because the average order value and margin remained strong, recovering failed payments could have generated meaningful additional revenue and profit. Delivery delays were also present, but they appear to be a secondary issue compared with payment failures.
+
+## 4. Recommended action
+
+1. **Review payment logs for January 20**
+   - Identify failed transactions by payment provider, card type, country, error code, and time of day.
+2. **Check for a payment gateway outage or configuration change**
+   - Confirm whether the provider reported incidents or whether any checkout changes were deployed.
+3. **Measure recovery opportunities**
+   - Retry eligible payments and send customers payment-failure reminders or abandoned-cart messages.
+4. **Review fraud and decline rules**
+   - Check whether legitimate orders were incorrectly blocked.
+5. **Add a backup payment method or provider**
+   - Offer alternatives such as another card processor, digital wallet, or bank payment option.
+6. **Monitor the next several days**
+   - If the failure rate quickly returns to normal, this was likely a temporary incident. If it remains high, treat it as an ongoing checkout or payment-processing problem.
+
+Overall, this appears to be a **payment-processing anomaly that reduced order volume**, rather than a problem with pricing, profitability, or customer demand."
+2021-01-24,True,False,False,True,False,Possible Anomaly,Medium,51,64739.95,66021.6,8331.27,33691.88,29920.19,270,1269.4107843137251,46.215960932932454,98.0392156862745,3.610869565217391,0.0,5.88235294117647,13.725490196078432,-1.335830659270197,-1.1678498539286395,-0.920046851504166,-0.5316872347043037,-0.9304399529473883,-1.4974677108820302,-0.9314939597647954,-0.0587653464864133,0.3415621177781153,-3.0282516038255847,-0.9971379970112276,-0.6353605280087982,-0.5324442841350796,0.3780149105813605,repeat_customer_rate (z=-3.03),-29698.006229705366,-11361.05622369212,-23.17558628983764,-31.447108149470825,-27.52110767715096,-31.24422394085315,Critical,"## 1. What happened
+
+On **January 24, 2021**, business performance was below normal:
+
+- **51 orders**
+- **Revenue:** 64,739.95
+- **Profit:** 29,920.19
+- **Profit margin:** 46.2%
+- **Average order value:** 1,269.41
+
+The main unusual signal was a **sharp drop in the repeat customer rate**. Its z-score of **-3.03** indicates that repeat purchases were much lower than expected.
+
+Other indicators were somewhat concerning:
+
+- **Payment failure rate:** 5.9%
+- **Delivery delay rate:** 13.7%
+
+The anomaly is classified as **possible**, with **medium confidence**, so it should be investigated rather than treated as a confirmed business failure.
+
+## 2. Possible business reason
+
+The most likely explanation is that fewer existing customers returned to purchase on this date. Possible causes include:
+
+- A lapse in email, loyalty, or remarketing campaigns
+- A promotion or offer ending earlier than expected
+- Website, app, or login problems affecting returning customers
+- Inventory shortages on products commonly purchased by repeat customers
+- Payment issues preventing completed purchases
+- Delivery delays or poor prior delivery experiences reducing repeat purchases
+- Seasonal or post-holiday buying behavior
+
+The payment failure and delivery delay rates may have contributed, but the available data points most strongly to a **repeat-customer engagement or retention issue**.
+
+## 3. Business impact
+
+Compared with the normal baseline:
+
+- **Orders were down 31.2%**
+- **Revenue was down 31.4%**
+- **Profit was down 27.5%**
+
+This represents a significant short-term loss in sales and profit. However, the **46.2% profit margin** and **average order value of 1,269.41** were relatively strong, suggesting that the main problem was likely **fewer orders**, not weak pricing or poor profitability per order.
+
+## 4. Recommended action
+
+1. **Validate the data**
+   - Confirm that repeat-customer orders were recorded correctly.
+   - Check whether customer, order, or campaign data was delayed or missing.
+
+2. **Review repeat-customer activity**
+   - Compare repeat and new customers with the previous days and the same period in prior weeks.
+   - Identify which customer segments, products, or channels showed the largest decline.
+
+3. **Check customer contact and promotions**
+   - Confirm that loyalty emails, remarketing campaigns, discount codes, and subscription reminders were sent successfully.
+   - Consider a targeted offer to recently inactive customers.
+
+4. **Investigate operational issues**
+   - Review payment declines by payment method.
+   - Check delayed orders, stock availability, and customer complaints.
+
+5. **Monitor the next several days**
+   - If repeat purchases recover quickly, this may have been a one-day disruption.
+   - If the decline continues, treat it as a retention problem and launch a focused customer reactivation plan."
+2021-02-01,False,True,False,False,True,Possible Anomaly,Medium,42,44608.18,44112.0,4455.07,22585.41,21242.73,189,1062.0995238095238,47.62070544012331,100.0,3.5945945945945947,0.0,2.380952380952381,9.523809523809524,-1.8237844502114375,-1.8964907262285495,-1.45037068569671,-0.745430008191393,-1.4489875854526073,-2.600447286320949,-1.419127511760024,-1.4788742687843783,0.5841921703137998,0.4311127392714602,-1.248921506590802,-0.6353605280087982,-1.6494108083176695,-0.7018893567221229,profit (z=-2.60),-49829.77622970536,-20038.51622369212,-32.17558628983764,-52.76456439665247,-48.54145176506716,-43.37759618658495,Critical,"## 1. What happened
+
+On **February 1, 2021**, business activity was lower than expected:
+
+- **42 orders**, about **43% below normal**
+- **Revenue of $44,608**, about **53% below normal**
+- **Profit of $21,243**, about **49% below normal**
+- Profit was flagged as the main anomaly, with a **z-score of -2.60**
+- Average order value was **$1,062**
+- Profit margin was **47.6%**, which is not weak and may even indicate that margin was relatively stable
+- **1 payment failure** and approximately **4 delayed deliveries** occurred
+
+This appears to be a **volume and revenue shortfall**, rather than a major profitability-rate problem.
+
+## 2. Possible business reason
+
+Possible explanations include:
+
+- Lower customer demand or website traffic on that date
+- A seasonal or weekday effect at the start of February
+- Fewer high-value orders or a shift toward lower-value products
+- Marketing campaigns ending, being paused, or underperforming
+- Product availability or stock issues
+- Checkout or payment problems, although the payment failure rate was low
+- Delivery delays affecting repeat purchases or customer satisfaction
+
+The data does not prove one specific cause. The relatively strong profit margin suggests the main issue was likely **not excessive costs**, but fewer orders and lower revenue.
+
+## 3. Business impact
+
+The business likely missed approximately:
+
+- **32 orders** compared with expected volume
+- **$50,000 in revenue**
+- **$20,000 in profit**
+
+The decline in profit is significant and explains the anomaly alert. If this pattern continued, it would materially reduce monthly revenue and cash generation.
+
+Delivery delays affected roughly **1 in 10 orders**, which is also worth monitoring, though they do not appear large enough by themselves to explain the full revenue decline.
+
+## 4. Recommended action
+
+1. **Validate the data and baseline**
+   - Confirm that all orders, revenue, refunds, and costs for February 1 were recorded correctly.
+   - Compare the date with the same weekday and comparable dates, not only the overall average.
+
+2. **Investigate the volume decline**
+   - Review website traffic, conversion rate, marketing spend, promotions, and campaign changes.
+   - Check for stockouts, pricing changes, or website issues.
+   - Analyze whether the product or customer mix changed.
+
+3. **Check operational issues**
+   - Investigate the four delayed deliveries and confirm whether any region, carrier, or warehouse was affected.
+   - Review the failed payment and any checkout error logs.
+
+4. **Take corrective action**
+   - Restore or optimize effective marketing campaigns.
+   - Address inventory or website problems immediately.
+   - Improve delivery performance where delays are concentrated.
+
+5. **Monitor the next several days**
+   - Treat this as a possible one-day anomaly unless similar results continue.
+   - Escalate if low order volume and profit persist for several consecutive days."
+2021-02-03,False,True,False,False,True,Possible Anomaly,Medium,42,47406.7,46089.79,3973.28,23766.26,22815.2,179,1128.7309523809522,48.12653063807437,100.0,3.725806451612903,0.0,11.904761904761903,11.904761904761903,-1.8237844502114375,-1.7952022625739013,-1.402498101257575,-0.7719970405525572,-1.393855129159673,-2.400572865350937,-1.4793291848458543,-1.0224403732515914,0.6715592279705446,0.4311127392714602,0.7810042379293032,-0.6353605280087982,1.3887381374589756,-0.0899436052501495,profit (z=-2.40),-47031.25622970537,-18466.04622369212,-32.17558628983764,-49.80122199522117,-44.73228866112596,-43.37759618658495,Critical,"### 1. What happened
+
+On **February 3, 2021**, business performance was significantly lower than expected:
+
+- **Orders:** 42, down **43.4%**
+- **Revenue:** 47,406.7, down **49.8%**
+- **Profit:** 22,815.2, down **44.7%**
+- **Profit margin:** **48.1%**
+- **Payment failure rate:** **11.9%**—approximately 5 orders
+- **Delivery delay rate:** **11.9%**—approximately 5 orders
+
+The main anomaly was the low profit level, which was **2.4 standard deviations below normal**. The medium confidence rating means this is a meaningful warning, but it should be validated against nearby dates and business events.
+
+### 2. Possible business reason
+
+The most likely issue is a **drop in order volume**, possibly caused by:
+
+- Fewer customers or lower demand on that day
+- Payment failures preventing customers from completing purchases
+- Delivery delays affecting customer confidence or repeat orders
+- A marketing campaign ending, reduced traffic, or a website/checkout issue
+- Product availability or an unfavorable product mix
+
+Although revenue fell more sharply than orders, the average order value remained relatively high at **1,128.73**. This suggests the problem was primarily fewer completed orders rather than customers buying much smaller orders.
+
+### 3. Business impact
+
+- The company missed approximately half of its expected revenue.
+- Profit also fell substantially, reducing the day’s contribution to overall earnings.
+- Payment and delivery issues may have caused lost sales and customer dissatisfaction.
+- If the problem continued, it could lead to more abandoned purchases, refunds, complaints, and weaker repeat business.
+
+The healthy **48.1% profit margin** suggests profitability per completed sale was not necessarily the main problem. The bigger concern was the lack of completed transactions.
+
+### 4. Recommended action
+
+1. **Check payment systems immediately** for errors, declined transactions, or checkout failures.
+2. **Review the approximately 5 failed payments** and contact affected customers where possible.
+3. **Investigate the approximately 5 delayed deliveries**, including warehouse, carrier, and inventory issues.
+4. Compare February 3 with the previous and following days to determine whether this was a one-day event or part of a broader decline.
+5. Review website traffic, marketing activity, product availability, and order cancellations.
+6. If a system or delivery issue is confirmed, resolve it quickly and consider customer recovery actions such as payment links, discounts, refunds, or proactive delivery updates.
+7. Continue monitoring orders, revenue, profit, payment failures, and delivery delays over the next several days."
+2021-02-04,True,False,False,True,False,Possible Anomaly,Medium,64,75092.8,74153.77,6779.45,38967.18,34816.78,306,1173.325,46.36500436792875,100.0,3.522727272727273,1.5625,20.3125,10.9375,-0.6310085167995162,-0.79314312646304,-0.7232069468639363,-0.6172582348469008,-0.6841425852189577,-0.8750691334989646,-0.7147679366558051,-0.7169653848155109,0.3673051737417692,0.4311127392714602,-2.3607518713407925,1.0651681785848892,4.070854003652421,-0.3385465667856385,"payment_failure_rate (z=4.07), average_rating (z=-2.36)",-19345.15622970536,-6464.466223692121,-10.17558628983764,-20.48451385653808,-15.659571391480998,-13.718241808129443,High,"## 1. What happened
+
+On **February 4, 2021**, the business showed a possible decline in performance:
+
+- **Orders:** 64, down approximately **13.7%**
+- **Revenue:** 75,092.80, down approximately **20.5%**
+- **Profit:** 34,816.78, down approximately **15.7%**
+- **Payment failure rate:** **20.3%**, unusually high and the strongest anomaly
+- **Average rating:** lower than normal, also contributing to the anomaly
+- **Delivery delay rate:** **10.9%**, which may have added to customer dissatisfaction
+- **Profit margin:** **46.4%**, still relatively strong
+
+The main issue appears to be that too many customers were unable to complete payment, while customer ratings were also weaker than usual.
+
+## 2. Possible business reason
+
+The high payment failure rate may have been caused by:
+
+- A payment gateway or banking-system outage
+- Increased card declines or expired payment details
+- Fraud-prevention rules rejecting legitimate transactions
+- Problems with a particular payment method or checkout process
+
+The lower average rating may indicate:
+
+- Late or poorly handled deliveries
+- Product quality or service issues
+- Customer frustration caused by failed payments or checkout problems
+
+The delivery delay rate was not the main statistical anomaly, but it could have contributed to the lower ratings.
+
+## 3. Business impact
+
+- Fewer completed purchases reduced orders and revenue.
+- Failed payments likely caused customers to abandon their purchases, directly reducing sales.
+- Revenue declined more than order volume, suggesting that some higher-value purchases may also have been lost.
+- Profit fell by about **15.7%**, although the business retained a healthy **46.4% margin** on completed orders.
+- Lower ratings could create additional future risk by reducing repeat purchases and customer conversion.
+
+## 4. Recommended action
+
+1. **Immediately investigate payment failures**
+   - Review failures by payment method, bank, device, and error code.
+   - Check payment gateway uptime and transaction logs.
+   - Confirm whether fraud rules or system changes were introduced that day.
+
+2. **Recover affected sales**
+   - Retry failed transactions where appropriate.
+   - Send customers payment-retry links or alternative payment options.
+   - Contact high-value customers whose payments failed.
+
+3. **Review customer complaints and ratings**
+   - Identify the products, delivery areas, or service teams linked to low ratings.
+   - Check whether delayed orders or product issues were concentrated on this date.
+
+4. **Monitor the next several days**
+   - Track payment failure rate, orders, ratings, and delivery delays daily.
+   - Escalate if payment failures remain materially above normal.
+
+Because the anomaly has **medium confidence**, the payment and customer-feedback data should be validated before concluding that there was a single root cause."
